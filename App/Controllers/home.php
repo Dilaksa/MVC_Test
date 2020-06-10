@@ -20,5 +20,8 @@ class Home extends Controller {
   public function passengers(){
     $this->view('home/passengers');
 }
+public function prices(){
+  $this->view('home/prices');
+}
 }
 ?>
