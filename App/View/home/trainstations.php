@@ -49,8 +49,24 @@
         </div>
 
 
-            <div class="form-group col-md-5">
+            <div  class="float-left col-md-2" >
+            
+            <label for="default-picker">Datum:</label>
+                <input type="date" id="default-picker" class="form-control" placeholder="Select time">
+            
+            </div>
+
+            <div  class="float-left col-md-2" >
+            
+            <label for="default-picker">Zeit:</label>
+                <input type="time" id="default-picker" class="form-control" placeholder="Select time">
+            
+            </div>
+  
+
+            <div class="float-right col-md-5">
             <form>
+            
                 <p><h5>Billettart:</h5></p>
                 <fieldset>
                     <input type="radio" id="ef" name="Strecke" value="Einfache Fahrt">
@@ -63,32 +79,34 @@
             </form>
         </div>
 
-        <div class="col">
-        <label>
-
-        <a class="btn btn-primary btn-lg" onclick="location.href='http://localhost/MVC_Test/Public/home/passengers'" role="button">Weiter</a>
-        </div>
-
         <div class="container-fluid">
 
     <div class="row">
-        <div class="col-1">
-         <button class=" btn btn-primary backBtn btn-lg pull-left" type="button" onclick="history.back(-1)"><i
-                class="fa fa-arrow-left"></i></button>
+        <div class="col 1">
+         
         </div>
-        <div class="col-2">
+        <div class="col 2">
         </div>
         </div>
-        <div>
+        <div class="float-left col-md 5">
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        <button type="button" class="btn btn-default btn-lg">
-                 <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Stop
-            </button>
+       
+        <button type="button" class="btn btn-danger"onclick="location.href='http://localhost/MVC_Test/Public/index.php'" role="button">STOP</button>
+        <button class=" btn btn-primary backBtn btn-lg pull-left" type="button" onclick="history.back(-1)"><i
+                class="fa fa-arrow-left"></i></button>
             </div>
-        
+            <div class="float-right col-md -3">
+            <a class="btn btn-primary btn-lg" onclick="location.href='http://localhost/MVC_Test/Public/home/passengers'" role="button">Weiter</a>
+            </div>
     </div>
 </div>
         
     
 </div>
-    
+
+<?php
+       $trainstations = $data['trainstations'];
+        foreach($trainstations as $key => $value):
+ echo '<option value="'.$key.'">'.$value.'</option>';
+    endforeach;
+?>

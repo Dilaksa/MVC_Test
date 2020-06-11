@@ -14,7 +14,8 @@ class Home extends Controller {
     }
 
     public function trainstations(){
-      $this->view('home/trainstations');
+      include('../app/data/trainstations.php');
+      $this->view('home/trainstations', ['trainstations' => $trainstations]);
   }
     
   public function passengers(){
