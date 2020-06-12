@@ -1,90 +1,98 @@
 <div class="container-fluid">
-
-    <div class="row">
-        <div class="col-1">
-
-        </div>
-        <div class="col-2">
-        </div>
-        </div>
-        <div class="col-6">
-        
-        </div>
-    </div>
-</div>
-<div class="float-left col-md-5">
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">Ihre Wahl</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td></td>
-      
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td></td>
-      
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td></td>
-      
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-<div class="float-right col-md-3">
-<p>Klasse:</p>
-<button type="button" class="btn btn-secondary btn-lg">1.Klasse</button>
-<button type="button" class="btn btn-secondary btn-lg">2.Klasse</button>
-</div>
-
-<div class="float-right col-md-5">
-        <form>
-        
-            <p>Kundengruppe:</p>
-            <fieldset>
-                <input type="radio" id="ew" name="Kundengruppe" value="Erwachsene ohne Halbtax">
-                <label for="ew"> Erwachsene ohne Halbtax</label><br>
-                <input type="radio" id="ht" name="Kundengruppe" value="Halbtax">
-                <label for="ht"> Halbtax</label><br>
-                <input type="radio" id="kd" name="Kundengruppe" value=" Kinder 6-16 Jahre">
-                <label for="kd"> Kinder 6-16 Jahre</label></br>
-            </fieldset>
-        </form>
-    </div>
-        <div class="form-row">
-            <div class="form-group col-md-5">
-                <label for "passengers">anzahl Pers.</label>
-                 <input type="number" value="1" min="1" max="20" step="1"/>
-            </div>
-        </div>
-
-   
-    </div>
-    
-    <div class="form-row">
-        
-        
-        <button type="button" class="btn btn-danger"onclick="location.href='http://localhost/MVC_Test/Public/index.php'" role="button">STOP</button>
-        <button class=" btn btn-primary backBtn btn-lg pull-left" type="button" onclick="history.back(-1)"><i
-                class="fa fa-arrow-left"></i></button>
-     </div>            
-                
-      
-      
-     <div class="align-self-end ml-auto">
-            <a class="btn btn-primary btn-lg" onclick="location.href='http://localhost/MVC_Test/Public/home/prices'" role="button">Weiter</a>
-    </div>
-           
+<div class="form-group col-md-1">
 
 </div>
+        <div class="row">
 
+        
+        <div class="form-group col-md-1">
+
+        </div>
+        <div class="form-group col-md-10">
+            
+            <style>
+                h3 {
+                    background-color: #cc0000;
+                }
+
+                h3 {
+                    color: #cccccc;
+                }
+            </style>
+            <h3 class="display-5 text-center border border-primary bordar-info mb-3">Bitte auswählen</h3>
+        </div>
+    </div>
+        
+    </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-1">
+  </div>
+
+  <div class="col-md-4">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col"><h5>Ihre Wahl</h5></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td></td>
+
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td></td>
+
+        </tr>
+        
+       
+       
+
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-1">
+  </div>
+    <div class="col-md-2">
+      <p><h5>Klasse:</p>
+      <button type="button" class="btn btn-secondary btn-lg"><h5>1.Klasse</h5></button>
+      <button type="button" class="btn btn-secondary btn-lg"><h5>2.Klasse</h5></button>
+    </div>
+    <div class="col-md-4">
+    <p><h5>Anzahl Billette:</h5></p>
+      <input type="number" value="1" min="1" max="10" step="1" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-6"></div>
+  <div class="col-md-6">
+    <form>
+      <p><h5>Kundengruppe:</h5></p>
+      <fieldset>
+        <input type="radio" id="ew" name="Kundengruppe" value="Erwachsene ohne Halbtax">
+        <label for="ew"><h5> Erwachsene ohne Halbtax</h5></label><br>
+        <input type="radio" id="ht" name="Kundengruppe" value="Halbtax">
+        <label for="ht"><h5> Halbtax</h5></label><br>
+        <input type="radio" id="kd" name="Kundengruppe" value=" Kinder 6-16 Jahre">
+        <label for="kd"> <h5>Kinder 6-16 Jahre</h5></label></br>
+      </fieldset>
+    </form>
+  </div>
+   </div>
+
+
+
+
+  
+
+
+
+
+</div>
+</div>

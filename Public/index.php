@@ -24,6 +24,16 @@
 <body>
 
     <main>
+        <header>
+        <style>
+            header {background-color: black;}
+            h3 { color: #cccccc;}
+        </style>
+            <h2> M120</h2>
+    
+        </header>
+        
+  
         <div class="container-fluid">
             <div class="row">
                 <?php
@@ -33,8 +43,10 @@
             ?>
             </div>
         </div>
+        
 
     </main>
+    
 </body>
 
 </html>

@@ -5,7 +5,6 @@ $trainstations = [
 'Arbon',
 'Romanshorn',
 'Frauenfeld'
-
 ];
 
 ?>
