@@ -1,98 +1,117 @@
 <div class="container-fluid">
-<div class="form-group col-md-1">
+  <div class="form-group col-md-1">
+
+  </div>
+  <div class="row">
+
+
+    <div class="form-group col-md-1">
+
+    </div>
+    <div class="form-group col-md-10">
+
+      <style>
+        h3 {
+          background-color: #cc0000;
+          color: #cccccc;
+        }
+      </style>
+      <h3 class="display-5 text-center border border-primary bordar-info mb-3">Bitte auswählen</h3>
+    </div>
+  </div>
 
 </div>
-        <div class="row">
+</div>
 
-        
+<form>
+
+  <div class="form-row">
+    <div class="form-group col-md-1">
+    </div>
+    <h4><?php echo $data['summary']; ?></h4>
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-2">
+      <p>
+        <h5>Klasse:
+      </p>
+      <?php
+      $class = $data['class'];
+      foreach ($class as $key => $value) :
+        echo '<button type="button" class="btn btn-secondary btn-lg"' . $key . '" value="' . $key . '" />';
+        echo '<label for="classType' . $key . '"><h5>&nbsp;' . $value . '</h5></label></br>';
+      endforeach;
+      ?>
+
+      <div class="col-md-2">
+        <label for="number">
+          <h5>Anzahl Billette:</h5>
+        </label>
+        <select name="number" id="number" class="form-control">
+          <option val="" selected disabled> 1</option>
+          <?php
+          $number = $data['number'];
+          foreach ($number as $key => $value) :
+            echo '<option value="' . $key . '">' . $value . '</option>';
+          endforeach;
+          ?>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <form>
+          <p>
+            <h5>Kundengruppe:</h5>
+          </p>
+          <fieldset>
+            <?php
+            $client = $data['client'];
+            foreach ($client as $key => $value) :
+              echo '<input type="radio" name="clientType" id="clientType' . $key . '" value="' . $key . '" />';
+              echo '<label for="clientType' . $key . '"><h5>&nbsp;' . $value . '</h5></label></br>';
+            endforeach;
+            ?>
+          </fieldset>
+
+      </div>
+    </div>
+
+
+
+    <div class="container-fluid">
+
+      <style>
+        footer {
+          background-color: black;
+        }
+      </style>
+
+      <div class="form-row">
         <div class="form-group col-md-1">
 
         </div>
-        <div class="form-group col-md-10">
-            
-            <style>
-                h3 {
-                    background-color: #cc0000;
-                }
 
-                h3 {
-                    color: #cccccc;
-                }
-            </style>
-            <h3 class="display-5 text-center border border-primary bordar-info mb-3">Bitte auswählen</h3>
+
+        <button class=" btn btn-primary backBtn btn-lg pull-left" type="button" onclick="history.back(-1)">
+          <i class="fa fa-arrow-left"></i></button>
+        <button type="button" class="btn btn-danger" onclick="location.href='http://localhost/MVC_Test/Public/index.php'" role="button">
+          <h5>STOP</h5>
+        </button>
+
+        <div class="form-group col-md-11">
+
+          <input class="btn btn-primary btn-lg" type="submit" role="button"></input>
         </div>
+      </div>
     </div>
-        
+
+    <div class="form-group col-md-10">
     </div>
-</div>
 
-<div class="form-row">
-  <div class="form-group col-md-1">
-  </div>
-
-  <div class="col-md-4">
-    <table class="table table-dark table-striped">
-      <thead>
-        <tr>
-          <th scope="col"><h5>Ihre Wahl</h5></th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td></td>
-
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td></td>
-
-        </tr>
-        
-       
-       
-
-      </tbody>
-    </table>
-  </div>
-  <div class="col-md-1">
-  </div>
-    <div class="col-md-2">
-      <p><h5>Klasse:</p>
-      <button type="button" class="btn btn-secondary btn-lg"><h5>1.Klasse</h5></button>
-      <button type="button" class="btn btn-secondary btn-lg"><h5>2.Klasse</h5></button>
-    </div>
-    <div class="col-md-4">
-    <p><h5>Anzahl Billette:</h5></p>
-      <input type="number" value="1" min="1" max="10" step="1" />
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="col-md-6"></div>
-  <div class="col-md-6">
-    <form>
-      <p><h5>Kundengruppe:</h5></p>
-      <fieldset>
-        <input type="radio" id="ew" name="Kundengruppe" value="Erwachsene ohne Halbtax">
-        <label for="ew"><h5> Erwachsene ohne Halbtax</h5></label><br>
-        <input type="radio" id="ht" name="Kundengruppe" value="Halbtax">
-        <label for="ht"><h5> Halbtax</h5></label><br>
-        <input type="radio" id="kd" name="Kundengruppe" value=" Kinder 6-16 Jahre">
-        <label for="kd"> <h5>Kinder 6-16 Jahre</h5></label></br>
-      </fieldset>
-    </form>
-  </div>
-   </div>
-
-
-
-
-  
-
-
-
-
-</div>
-</div>
+</form>

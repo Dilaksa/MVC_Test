@@ -24,15 +24,10 @@
 <body>
 
     <main>
-        <header>
-        <style>
-            header {background-color: black;}
-            h3 { color: #cccccc;}
-        </style>
-            <h2> M120</h2>
-    
-        </header>
         
+            <h1> </h1>
+    
+      
   
         <div class="container-fluid">
             <div class="row">

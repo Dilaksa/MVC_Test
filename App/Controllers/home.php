@@ -15,20 +15,51 @@ class Home extends Controller {
 
     public function trainstations(){
       include('../app/data/trainstations.php');
-      $this->view('home/trainstations', ['trainstations' => $trainstations ]);
-      //$this->view('home/trainstations', ['ticket' => $ticket ]);
-      $this->view('home/footer', [ 'next' => 'passengers']);
+      include('../app/data/ticket.php');
+      $this->view('home/trainstations', ['trainstations' => $trainstations, 'ticket' => $ticket  ]);
   }
     
   public function passengers(){
-    $this->view('home/passengers');
-    $this->view('home/footer', [ 'next' => 'prices']);
+    $_SESSION['startingPoint'] = $_POST['startingPoint'];
+    $_SESSION['endPoint'] = $_POST['endPoint'];
+    $_SESSION['date'] = $_POST['date'];
+    $_SESSION['time'] = $_POST['time'];
+    $_SESSION['ticketType'] = $_POST['ticketType'];
+    $_SESSION['clientType'] = $_POST['clientType'];
+    include('../app/data/ticket.php');
+    $this->view('home/passengers', [ 'summary' => $this->orderSummary() ]);
+    $this->view('home/passengers', [ 'client' => $client, 'number' => $number, 'class' => $class ]);
+  }
+  
+
+  public function prices(){
+    $this->view('home/prices');
+    include('../app/data/ticket.php');
   }
 
-public function prices(){
-  $this->view('home/prices');
-  $this->view('home/footer', [ 'next' => 'passengers']);
-}
-
+  private function orderSummary(){
+    include('../app/data/trainstations.php');
+    include('../app/data/ticket.php');
+    $summary = '';
+    if(isset($_SESSION['startingPoint'])){
+      $summary .= 'Von: '.$trainstations[$_SESSION['startingPoint']].'<br/>';
+    }
+    if(isset($_SESSION['endPoint'])){
+      $summary .= 'Nach: '.$trainstations[$_SESSION['endPoint']].'<br/>';
+    }
+    if(isset($_SESSION['date'])){
+      $summary .= 'Datum: '.$_SESSION['date'].'<br/>';
+    }
+    if(isset($_SESSION['time'])){
+      $summary .= 'Zeit: '.$_SESSION['time'].'<br/>';
+    }
+    if(isset($_SESSION['ticketType'])){
+      $summary .= 'Billetart: '.$ticket[$_SESSION['ticketType']].'<br/>';
+    }
+    if(isset($_SESSION['clientType'])){
+      $summary .= 'Billetart: '.$ticket[$_SESSION['clientType']].'<br/>';
+    }
+    return $summary;
+  }
 }
 ?>
