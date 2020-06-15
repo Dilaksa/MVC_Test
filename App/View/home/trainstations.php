@@ -1,3 +1,16 @@
+<script> function uberprufung() {
+    var msg = document.querySelector("#startingPoint").value;
+    console.log(msg);
+    var msg2 = document.querySelector("#endPoint").value;
+    console.log(msg2);
+    if (msg != msg2) {
+        return true;
+    } else {
+        alert("Sie können nicht zweimal den selben Ort wählen!");
+        return false;
+    }
+}
+</script>
 
     <div class="container-fluid">
         <div class="form-group col-md-1">
@@ -26,7 +39,7 @@
 
     </div>
     </div>
-    <form action="/MVC_Test/Public/home/passengers" method="POST">
+    <form action="/MVC_Test/Public/home/passengers" method="POST" onsubmit="return uberprufung()">
     <div class="form-row">
         <div class="form-group col-md-1">
 

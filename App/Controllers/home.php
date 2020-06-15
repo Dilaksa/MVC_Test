@@ -20,21 +20,27 @@ class Home extends Controller {
   }
     
   public function passengers(){
+    if (isset($_POST['startingPoint'])){
+
+    
     $_SESSION['startingPoint'] = $_POST['startingPoint'];
     $_SESSION['endPoint'] = $_POST['endPoint'];
     $_SESSION['date'] = $_POST['date'];
     $_SESSION['time'] = $_POST['time'];
-    $_SESSION['ticketType'] = $_POST['ticketType'];
-    $_SESSION['clientType'] = $_POST['clientType'];
-    include('../app/data/ticket.php');
-    $this->view('home/passengers', [ 'summary' => $this->orderSummary() ]);
+    
+   } 
+   include('../app/data/ticket.php');
+    $this->view('home/passengers', [ 'summary' => $this->orderSummary(), 'class' => $class, 'number' => $number, 'client' => $client ]);
     //$this->view('home/passengers', [ 'client' => $client, 'number' => $number, 'class' => $class ]);
   }
   
 
   public function prices(){
     $this->view('home/prices');
+    print_r($_POST);
     include('../app/data/ticket.php');
+    $_SESSION['classType'] = $_POST['classType'];
+    $_SESSION['clientType'] = $_POST['clientType'];
   }
 
   private function orderSummary(){

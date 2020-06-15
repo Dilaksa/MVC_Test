@@ -23,13 +23,31 @@
 </div>
 </div>
 
-<form>
+<form action="/MVC_Test/Public/home/prices" method="POST">
 
   <div class="form-row">
     <div class="form-group col-md-1">
+      
     </div>
-    <h4><?php echo $data['summary']; ?></h4>
+
     <div class="col-md-2">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>
+              Ihre Auswahl
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="table-dark">
+            <td ALIGN="Left"><?php echo $data['summary']; ?></td>
+          </tr>
+
+        </tbody>
+      </table>
 
     </div>
     <div class="col-md-1">
@@ -41,8 +59,8 @@
       <?php
       $class = $data['class'];
       foreach ($class as $key => $value) :
-        echo '<button type="button" class="btn btn-secondary btn-lg"' . $key . '" value="' . $key . '" />';
-        echo '<label for="classType' . $key . '"><h5>&nbsp;' . $value . '</h5></label></br>';
+        echo '<button type="button" name="classType" class="btn btn-secondary btn-lg" value="' . $key . '" />';
+        echo '<label for="classType' . $key . '"><h5>&nbsp;' . $value . '</h5></label></button>';
       endforeach;
       ?>
 
@@ -65,7 +83,7 @@
     <div class="form-row">
       <div class="col-md-6"></div>
       <div class="col-md-6">
-        <form>
+        
           <p>
             <h5>Kundengruppe:</h5>
           </p>
@@ -94,6 +112,7 @@
 
       <div class="form-row">
         <div class="form-group col-md-1">
+
 
         </div>
 
