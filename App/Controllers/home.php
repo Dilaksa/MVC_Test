@@ -28,7 +28,7 @@ class Home extends Controller {
     $_SESSION['clientType'] = $_POST['clientType'];
     include('../app/data/ticket.php');
     $this->view('home/passengers', [ 'summary' => $this->orderSummary() ]);
-    $this->view('home/passengers', [ 'client' => $client, 'number' => $number, 'class' => $class ]);
+    //$this->view('home/passengers', [ 'client' => $client, 'number' => $number, 'class' => $class ]);
   }
   
 
