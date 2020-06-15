@@ -21,8 +21,6 @@ class Home extends Controller {
     
   public function passengers(){
     if (isset($_POST['startingPoint'])){
-
-    
     $_SESSION['startingPoint'] = $_POST['startingPoint'];
     $_SESSION['endPoint'] = $_POST['endPoint'];
     $_SESSION['date'] = $_POST['date'];
@@ -36,11 +34,12 @@ class Home extends Controller {
   
 
   public function prices(){
-    $this->view('home/prices');
-    print_r($_POST);
-    include('../app/data/ticket.php');
+    
+    $_SESSION['number'] = $_POST['number'];
     $_SESSION['classType'] = $_POST['classType'];
     $_SESSION['clientType'] = $_POST['clientType'];
+     include('../app/data/ticket.php');
+    $this->view('home/prices', [ 'summary' => $this->orderSummary()]);
   }
 
   private function orderSummary(){
@@ -59,11 +58,14 @@ class Home extends Controller {
     if(isset($_SESSION['time'])){
       $summary .= 'Zeit: '.$_SESSION['time'].'<br/>';
     }
-    if(isset($_SESSION['ticketType'])){
-      $summary .= 'Billetart: '.$ticket[$_SESSION['ticketType']].'<br/>';
+    if(isset($_SESSION['classType'])){
+      $summary .= 'Klasse: '.$_SESSION['classType'].'<br/>';
     }
     if(isset($_SESSION['clientType'])){
-      $summary .= 'Billetart: '.$ticket[$_SESSION['clientType']].'<br/>';
+      $summary .= 'Billetart: '.$_SESSION['clientType'].'<br/>';
+    }
+    if(isset($_SESSION['number'])){
+      $summary .= 'Anzahl: '.$_SESSION['number'].'<br/>';
     }
     return $summary;
   }

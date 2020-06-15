@@ -11,6 +11,7 @@
         public function __construct() {
             $url = $this->parseUrl();
 
+            session_start();
 
             if($url && file_exists('../app/controllers/'.$url[0].'.php')) {
                 $this->controller = $url[0];

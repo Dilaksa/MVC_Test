@@ -27,11 +27,11 @@
 
   <div class="form-row">
     <div class="form-group col-md-1">
-      
+
     </div>
 
     <div class="col-md-2">
-    <table class="table table-hover">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>
@@ -52,51 +52,62 @@
     </div>
     <div class="col-md-1">
     </div>
-    <div class="col-md-2">
-      <p>
-        <h5>Klasse:
-      </p>
-      <?php
-      $class = $data['class'];
-      foreach ($class as $key => $value) :
-        echo '<button type="button" name="classType" class="btn btn-secondary btn-lg" value="' . $key . '" />';
-        echo '<label for="classType' . $key . '"><h5>&nbsp;' . $value . '</h5></label></button>';
-      endforeach;
-      ?>
 
-      <div class="col-md-2">
-        <label for="number">
-          <h5>Anzahl Billette:</h5>
-        </label>
-        <select name="number" id="number" class="form-control">
-          <option val="" selected disabled> 1</option>
-          <?php
-          $number = $data['number'];
-          foreach ($number as $key => $value) :
-            echo '<option value="' . $key . '">' . $value . '</option>';
-          endforeach;
-          ?>
-        </select>
-      </div>
-    </div>
 
-    <div class="form-row">
-      <div class="col-md-6"></div>
-      <div class="col-md-6">
-        
-          <p>
-            <h5>Kundengruppe:</h5>
-          </p>
-          <fieldset>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="number">
+            <h5>Klass:</h5>
+          </label>
+          <select name="classType" id="class" class="form-control">
             <?php
-            $client = $data['client'];
-            foreach ($client as $key => $value) :
-              echo '<input type="radio" name="clientType" id="clientType' . $key . '" value="' . $key . '" />';
-              echo '<label for="clientType' . $key . '"><h5>&nbsp;' . $value . '</h5></label></br>';
+            $class = $data['class'];
+            foreach ($class as $key => $value) :
+              echo '<option value="' . $value . '">' . $value . '</option>';
             endforeach;
             ?>
-          </fieldset>
+          </select>
+        </div>
 
+
+        <div class="col-md-6">
+          <label for="number">
+            <h5>Anzahl Billette:</h5>
+          </label>
+          <select name="number" id="number" class="form-control">
+            <option val="" selected disabled>Bitte auswählen</option>
+            <?php
+            $number = $data['number'];
+            foreach ($number as $key => $value) :
+              echo '<option value="' . $value . '">' . $value . '</option>';
+            endforeach;
+            ?>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+
+
+        <div class="col-md-1"></div>
+        <div class="form-row">
+          <div class="col-md-12">
+
+            <p>
+              <h5>Kundengruppe:</h5>
+            </p>
+            <fieldset>
+              <?php
+              $client = $data['client'];
+              foreach ($client as $key => $value) :
+                echo '<input type="radio" name="clientType" id="clientType' . $key . '" value= "' . $value . '" />';
+                echo '<label for="clientType' . $key . '"><h5>&nbsp;' . $value . '</h5></label></br>';
+              endforeach;
+              ?>
+            </fieldset>
+
+          </div>
+        </div>
       </div>
     </div>
 
@@ -123,14 +134,17 @@
           <h5>STOP</h5>
         </button>
 
-        <div class="form-group col-md-11">
 
-          <input class="btn btn-primary btn-lg" type="submit" role="button"></input>
-        </div>
+
+
       </div>
     </div>
 
     <div class="form-group col-md-10">
+    </div>
+    <div class="form-group col-md-1">
+
+      <input class="btn btn-primary btn-lg" type="submit" role="button"></input>
     </div>
 
 </form>
