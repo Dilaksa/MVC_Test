@@ -60,7 +60,7 @@
     <h5>Betrag bezahlen:</h5>
 
     <p>
-    <table name="prices" id="price" class="form-control">
+    <table name="prices" id="price" class="form-control"> 
       <?php
             $prices = $data['prices'];
             foreach ($prices as $key => $value) :
@@ -101,7 +101,9 @@
   <div class="form-group col-md-10">
   </div>
   <div class="form-group col-md-1">
-
-    <input class="btn btn-primary btn-lg" type="submit" role="button"></input>
-  </div>
+<form action="">
+<button type="button" class="btn btn-lg" onclick="location.href='http://localhost/MVC_Test/Public/index.php'" role="button">
+<h5>Kaufen</h5>
+</form>
+</div>
 </div>
