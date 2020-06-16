@@ -60,13 +60,14 @@
     <h5>Betrag bezahlen:</h5>
 
     <p>
-    <table name="prices" id="price" class="form-control"> 
+    <table name="prices" id="prices" class="form-control"> 
       <?php
-            $prices = $data['prices'];
-            foreach ($prices as $key => $value) :
-              echo '<option value="' . $value . '">' . $value . '</option>';
-            endforeach;
+           // $prices = $data['prices'];
+           // foreach ($prices as $value => $value) :
+             // echo '<option value="' . $value . '">' . $value . '</option>';
+            //Sendforeach;
             ?>
+            
     </table>
     </p>
 
@@ -102,7 +103,7 @@
   </div>
   <div class="form-group col-md-1">
 <form action="">
-<button type="button" class="btn btn-lg" onclick="location.href='http://localhost/MVC_Test/Public/index.php'" role="button">
+<button type="button" class="btn btn-lg black " onclick="location.href='http://localhost/MVC_Test/Public/index.php'" role="button">
 <h5>Kaufen</h5>
 </form>
 </div>

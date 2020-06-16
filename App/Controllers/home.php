@@ -39,7 +39,7 @@ class Home extends Controller {
     $_SESSION['classType'] = $_POST['classType'];
     $_SESSION['clientType'] = $_POST['clientType'];
      include('../app/data/ticket.php');
-    $this->view('home/prices', [ 'summary' => $this->orderSummary()]);
+    $this->view('home/prices', [ 'summary' => $this->orderSummary()/*, 'prices' => $prices*/]);
   }
 
   private function orderSummary(){
