@@ -59,6 +59,17 @@
 
     <h5>Betrag bezahlen:</h5>
 
+    <p>
+    <table name="prices" id="price" class="form-control">
+      <?php
+            $prices = $data['prices'];
+            foreach ($prices as $key => $value) :
+              echo '<option value="' . $value . '">' . $value . '</option>';
+            endforeach;
+            ?>
+    </table>
+    </p>
+
 
   </div>
 </div>

@@ -2,6 +2,17 @@
 
 class Controller{
 
+    private $start;
+    private $end;
+    private $date;
+    private $time;
+    private $ticket;
+    private $class;
+    private $number;
+    private $client;
+
+
+
     public function model($model){
         require_once('../app/models/' . $model . '.php');
         return new $model();
@@ -18,7 +29,7 @@ class Controller{
         exit;
     }
 
-   /* public function calculate(){
+   public function calculate(){
 
         $this->start = $_POST['startingPoint'];
         $this->end = $_POST['endPoint'];
@@ -28,11 +39,11 @@ class Controller{
         $this->class = $_POST['class'];
         $this->number = $_POST['number'];
         $this->client = $_POST['client'];
-        require('C:\xampp\htdocs\MVC_Test')
+        require('C:\xampp\htdocs\MVC_Test\App\Data\prices.php');
 
         $priceConnections = getPrices();
 
-        foreach(priceConnections as $key => $value){
+        foreach($priceConnections as $key => $value){
             if($value['From'] === $this -> start && $value['To'] === $this->end){
                 $this->prices = $value['Price']*$this->client;
                 if($this->class === $this->c1){
@@ -57,7 +68,7 @@ class Controller{
             }
         }
 
-    }*/
+    }
 }
 
 ?>
