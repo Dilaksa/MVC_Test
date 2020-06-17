@@ -78,7 +78,9 @@ class Home extends Controller {
 
        $start = $trainstations[$_SESSION['startingPoint']];
        $end = $trainstations[$_SESSION['endPoint']];
-       $ticket = 'Hin und Zurück';//$_SESSION['ticket'];
+       $ticket = 'Hin und Zurück';
+       $ticket = 'Einfache Fahrt';
+       $ticket = 'Mehrfahrtenkarte 6x';
        $class = $_SESSION['classType'];
        $number = $_SESSION['number'];
        $client = $_SESSION['clientType'];
@@ -106,10 +108,10 @@ class Home extends Controller {
                    $price = $price*6;
                }
                if($client === "Halbtax"){
-                   $price = $price*0.5;
+                   $price = $price*1.5;
                }
                if($client === "Erwachsene ohne Halbtax"){
-                   $price = $price*2;
+                   $price = $price*2.5;
                }
                if($client === "Senioren 65+"){
                    $price = $price*0.5;
