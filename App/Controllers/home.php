@@ -7,7 +7,6 @@ class Home extends Controller {
         
        $user =  $this->model('User');
        $user->name = $name;
-
         $this->view('home/index', ['user' => $user]);
 
         //$this->goto('home', 'index');
@@ -29,17 +28,17 @@ class Home extends Controller {
    } 
    include('../app/data/ticket.php');
     $this->view('home/passengers', [ 'summary' => $this->orderSummary(), 'class' => $class, 'number' => $number, 'client' => $client ]);
-    //$this->view('home/passengers', [ 'client' => $client, 'number' => $number, 'class' => $class ]);
+    
   }
   
 
   public function prices(){
-    
+    $price = $this->calculatePrice();
     $_SESSION['number'] = $_POST['number'];
     $_SESSION['classType'] = $_POST['classType'];
     $_SESSION['clientType'] = $_POST['clientType'];
-     include('../app/data/ticket.php');
-    $this->view('home/prices', [ 'summary' => $this->orderSummary()/*, 'prices' => $prices*/]);
+    $_SESSION['price'] = $price;
+    $this->view('home/prices', [ 'summary' => $this->orderSummary(), 'price' => $price ]);
   }
 
   private function orderSummary(){
@@ -67,7 +66,61 @@ class Home extends Controller {
     if(isset($_SESSION['number'])){
       $summary .= 'Anzahl: '.$_SESSION['number'].'<br/>';
     }
+    if(isset($_SESSION['price'])){
+      $summary .= 'Betrag bezahlen: '.$_SESSION['price'].'<br/>';
+    }
     return $summary;
   }
+
+  public function calculatePrice(){
+       require('C:\xampp\htdocs\MVC_Test\App\Data\prices.php');
+       include('../app/data/trainstations.php');
+
+       $start = $trainstations[$_SESSION['startingPoint']];
+       $end = $trainstations[$_SESSION['endPoint']];
+       $ticket = 'Hin und Zurück';//$_SESSION['ticket'];
+       $class = $_SESSION['classType'];
+       $number = $_SESSION['number'];
+       $client = $_SESSION['clientType'];
+
+       $prices = getPrices();
+       $price = 0;
+
+       foreach($prices as $key => $value){
+           if($value['From'] === $start && $value['To'] === $end){
+               $price = $value['Price'];
+
+               if($class === '1.Klasse'){
+                   $price = $price*2;
+               }
+               if($class === '2.Klasse'){
+                $price = $price;
+            }
+               if($ticket === "Hin und Zurück"){
+                   $price = $price*1.5;
+               }
+               if($ticket === "Einfache Fahrt"){
+                $price = $price;
+            }
+               if($ticket === "Mehrfahrtenkarte 6x"){
+                   $price = $price*6;
+               }
+               if($client === "Halbtax"){
+                   $price = $price*0.5;
+               }
+               if($client === "Erwachsene ohne Halbtax"){
+                   $price = $price*2;
+               }
+               if($client === "Senioren 65+"){
+                   $price = $price*0.5;
+               }
+               if($client === "Kinder 6-16 Jahre"){
+                $price = $price;
+            }
+
+           }
+       }
+      return $price*$number;
+   }
 }
 ?>
